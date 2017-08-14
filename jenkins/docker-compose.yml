@@ -1,0 +1,14 @@
+version: '2'
+
+services:
+  jenkins:
+    restart: always
+    image: caowendong/jenkins:1.0.0
+    ports:
+    - "8080:8080"
+    - "1022:22"
+    - "50000:50000"    
+    volumes:
+    - /srv/docker/jenkins/jenkins_home:/var/jenkins_home:Z
+    - /home/jenkins/test.xml:/usr/share/apache-maven-3.3.9/conf/settings.xml
+    - /srv/docker/jenkins/.m2:/root/.m2 
